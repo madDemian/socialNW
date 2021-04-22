@@ -3,17 +3,21 @@ import classes from "./Dialogs.module.css";
 import DialogsItems from "./DialogsItems/DialogsItems";
 import Message from "./Messages/Messages";
 
+
+
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogs.map(d =><DialogsItems id={d.id} name={d.name}></DialogsItems> )
-    let messagesElements = props.state.messages.map(t => <Message text={t.text}/>)
+    let dialogsElements = props.dialogs.map(d =><DialogsItems id={d.id} name={d.name}></DialogsItems> )
+    let messagesElements = props.messages.map(t => <Message text={t.text}/>)
 
-    let createMessage = React.createRef()
 
-    let sendMessage = () => {
+    let SendMessage = () => {
+        props.SendMessage()
+    }
 
-        let text = createMessage.current.value;
-        alert(text)
+    let MessageChange = (event) => {
+        let text = event.target.value;
+        props.MessageChange(text);
     }
 
     return (
@@ -25,8 +29,8 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <div className={classes.textarea}>
-                <textarea ref = {createMessage}></textarea>
-                <button onClick={sendMessage}>Send message</button>
+                <textarea onChange={MessageChange} value={props.newMessageText}></textarea>
+                <button onClick={SendMessage}>Send message</button>
             </div>
         </div>
     );
