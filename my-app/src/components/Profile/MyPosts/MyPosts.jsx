@@ -6,7 +6,7 @@ const MyPosts = (props) => {
 
     let postsElements = props.posts.map(p => <Post content = {p.text} likesCount = {p.likesCount}/>)
 
-    let PostChange = (event) => {
+    let postChange = (event) => {
         let text = event.target.value
         props.PostChange(text)
     }
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
                 </div>
                 <div>
                     Add new post
-                    <textarea onChange={PostChange} value={props.newPostText}></textarea>
+                    <textarea onChange={postChange} value={props.newPostText}></textarea>
                     <button onClick={addPost}>Add</button>
                 </div>
                 <div>
