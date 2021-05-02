@@ -3,33 +3,7 @@ const UNFOLLOWED = 'UNFOLLOWED';
 const SET_USERS = 'SET_USERS'
 
 let initialState = {
-    users: [
-        {
-            id: 1,
-            imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjcokZnuAVW2HGym40vpfY49ZPJTWEWaKICw&usqp=CAU',
-            followed: true,
-            fullName: 'Serega Naga',
-            status: 'im okay',
-            location: {city: 'Kiev', country: 'Ukraine'}
-        },
-        {
-            id: 2,
-            imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjcokZnuAVW2HGym40vpfY49ZPJTWEWaKICw&usqp=CAU',
-            followed: false,
-            fullName: 'Valentin Strauss',
-            status: 'im okay too',
-            location: {city: 'Munich', country: 'Germany'}
-        },
-        {
-            id: 3,
-            imgURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjcokZnuAVW2HGym40vpfY49ZPJTWEWaKICw&usqp=CAU',
-            followed: true,
-            fullName: 'Alexander Naga',
-            status: 'im not okay',
-            location: {city: 'Lisbon', country: 'Portuguese'}
-        }
-    ]
-
+    users:[]
 }
 
 
@@ -60,7 +34,7 @@ const usersReducer = (state = initialState, action) => {
             }
         case SET_USERS:
             return {
-                ...state,users: [...state.users,...action.users]
+                ...state,users:[...action.users]
             }
         default:
             return state

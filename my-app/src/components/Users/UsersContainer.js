@@ -11,11 +11,11 @@ let mapStateToProps=(state)=> {
 
 let mapDispatchToProps =(dispatch)=>{
     return{
+        unfollow:(userId)=>{
+            dispatch(unfollowedAC(userId))
+        },
         follow:(userId)=>{
             dispatch(followedAC(userId))
-        },
-        unfollowed:(userId)=>{
-            dispatch(unfollowedAC(userId))
         },
         setUsers:(users)=>{
             dispatch(setUsersAC(users))
@@ -24,5 +24,4 @@ let mapDispatchToProps =(dispatch)=>{
 }
 
 
-let UsersContainer = connect(mapStateToProps,mapDispatchToProps)(Users)
-export default UsersContainer
+export default  connect(mapStateToProps,mapDispatchToProps)(Users)

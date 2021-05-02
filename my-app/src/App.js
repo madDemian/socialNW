@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-function App(props) {
+function App() {
     return (
             <div className="app-wrapper">
                 <Header/>
